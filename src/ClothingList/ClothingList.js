@@ -28,6 +28,7 @@ export const ClothingList = () => {
 
   const filteredList = clothingList.filter(clothing => clothing.name.startsWith(filter));
 
+  // This method isnt working
   const handleAddItem = (item) => {
     const existingItem = clothingList.find((clothingItem) => clothingItem.name === item.name)
     if (existingItem){
@@ -39,6 +40,7 @@ export const ClothingList = () => {
     setClothes([...clothingList, item])
   }
 
+  // This method isnt working
   const items = (name, price, des, stock) => {
     const item = [{ id: clothingList.length , name: name , price: price, description: des, stock: stock}]
     handleAddItem (item)
