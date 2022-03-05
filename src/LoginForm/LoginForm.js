@@ -9,7 +9,6 @@ export const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  <script>var Alert = ReactBootstrap.Alert;</script>
   const handleLogin = (event) => {
     if (username === user.username && password === user.password) {
       //For admin control
