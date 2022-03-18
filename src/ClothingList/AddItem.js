@@ -14,7 +14,7 @@ export const AddClothes = ({ name, setName, price, setPrice, description, setDes
             <input type="description" value={description} onChange={(e) => setDescription(e.target.value)}></input>
             <label>Stock: </label>
             <input type="number" value={stock} onChange={(e) => setStock(e.target.value)}></input>
-            <Button variant="primary" onClick={() => addClothes({ name: name, price: "$" + price, description: description, stock: stock })}> Add Clothes</Button>
+            <Button variant="danger" onClick={() => addClothes({ name: name, price: "$" + price, description: description, stock: stock })}> Add Clothes</Button>
         </div>
     )
 }
