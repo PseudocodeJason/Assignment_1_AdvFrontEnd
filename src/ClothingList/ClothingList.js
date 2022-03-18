@@ -3,6 +3,7 @@ import "./ClothingList.css";
 import {useNavigate, useParams} from "react-router-dom";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { AddClothes } from "./AddItem";
 
 
 export const ClothingList = () => {
@@ -29,58 +30,31 @@ export const ClothingList = () => {
   const filteredList = clothingList.filter(clothing => clothing.name.startsWith(filter));
 
   // This method isnt working
-  const handleAddItem = (item) => {
-    const existingItem = clothingList.find((clothingItem) => clothingItem.name === item.name)
-    if (existingItem){
-      const newClothes = [...clothingList];
-      const item = newClothes.find((clothingItem) => clothingItem.name === item.name)
-      item.stock += item.stock
-      setClothes(newClothes)
-    }
-    setClothes([...clothingList, item])
-  }
+  const addClothes = (Clothes) =>
+      setClothes([...clothingList, Clothes])
 
   // This method isnt working
-  const items = (name, price, des, stock) => {
-    const item = [{ id: (clothingList.length + 1) , name: name , price: price, description: des, stock: stock}]
-    handleAddItem (item)
-  }
+  // const items = (name, price, des, stock) => {
+  //   const item = [{ id: (clothingList.length + 1) , name: name , price: price, description: des, stock: stock}]
+  //   handleAddItem (item)
+  // }
+  //const handleAddItem = (item) => {
+  //  const existingItem = clothingList.find((clothingItem) => clothingItem.name === item.name)
+  //  if (existingItem){
+  //    const newClothes = [...clothingList];
+  //    const item = newClothes.find((clothingItem) => clothingItem.name === item.name)
+  //    item.stock += item.stock
+  //    setClothes(newClothes)
+  //  }
+  //  setClothes([...clothingList, item])
+  //}
+
 
   return (
     <div className="clothing-list">
-      <br/><br/>
+      
       <RoleWrapper rolesAllowed={['Admin']} currentRole={role}>
-      <label> Name: </label>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-
-      />
-      <label> Price: </label>
-      <input
-        type="text"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-
-      />
-      <label> Description: </label>
-      <input
-        type="text"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-
-      />
-      <label> Stock: </label>
-      <input
-        type="number"
-        value={stock}
-        onChange={(e) => setStock(e.target.value)}
-
-      /> <br/><br/>
-      <Button onClick={() => items(name, price, description, stock)} variant="danger">
-        Edit
-      </Button>
+      <AddClothes name={name} setName={setName} price={price} setPrice={setPrice} description={description} setDescription={setDescription} stock={stock} setStock={setStock} addClothes={addClothes} />
       </RoleWrapper>
       <Button onClick={() => navigate('/')} variant="primary">
         Login
@@ -105,7 +79,7 @@ export const ClothingList = () => {
         <tbody>
           {filteredList.map(({id, name, price, description, stock}, index) => (
             <tr key={index}>
-              <td>{id}</td>
+              <td>{index + 1}</td>
               <td>{name}</td>
               <td>{price}</td>
               <td>{description}</td>
