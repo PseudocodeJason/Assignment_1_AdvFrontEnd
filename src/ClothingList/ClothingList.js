@@ -48,29 +48,7 @@ export const ClothingList = () => {
 
   return (
     <div className="clothing-list">
-      <table>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Stock</th>
-          </tr>
-        </thead>
-        <tbody>
-          {clothingList.map(({id, name, price, description, stock}, index) => (
-            <tr key={index}>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{price}</td>
-              <td>{description}</td>
-              <td>{stock}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table><br/>
-      
+      <br/><br/>
       <RoleWrapper rolesAllowed={['Admin']} currentRole={role}>
       <label> Name: </label>
       <input
