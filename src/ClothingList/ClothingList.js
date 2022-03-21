@@ -47,6 +47,7 @@ export const ClothingList = () => {
       <RoleWrapper rolesAllowed={['Admin']} currentRole={role}>
       <AddClothes name={name} setName={setName} price={price} setPrice={setPrice} description={description} setDescription={setDescription} stock={stock} setStock={setStock} addClothes={addClothes} />
       </RoleWrapper>
+      <br/>
       <Button onClick={() => navigate('/')} variant="primary">
         Login
       </Button><br/><br/>
