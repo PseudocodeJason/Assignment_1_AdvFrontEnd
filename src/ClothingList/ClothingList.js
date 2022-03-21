@@ -29,25 +29,16 @@ export const ClothingList = () => {
 
   const filteredList = clothingList.filter(clothing => clothing.name.startsWith(filter));
 
-  // This method isnt working
-  const addClothes = (Clothes) =>
-      setClothes([...clothingList, Clothes])
-
-  // This method isnt working
-  // const items = (name, price, des, stock) => {
-  //   const item = [{ id: (clothingList.length + 1) , name: name , price: price, description: des, stock: stock}]
-  //   handleAddItem (item)
-  // }
-  //const handleAddItem = (item) => {
-  //  const existingItem = clothingList.find((clothingItem) => clothingItem.name === item.name)
-  //  if (existingItem){
-  //    const newClothes = [...clothingList];
-  //    const item = newClothes.find((clothingItem) => clothingItem.name === item.name)
-  //    item.stock += item.stock
-  //    setClothes(newClothes)
-  //  }
-  //  setClothes([...clothingList, item])
-  //}
+  const addClothes = (item) => {
+    const existingItem = clothingList.find((clothingItem) => clothingItem.name === item.name)
+    if (existingItem){
+      const newClothes = [...clothingList];
+      const item = newClothes.find((clothingItem) => clothingItem.name === item.name)
+      item.stock += item.stock
+      setClothes(newClothes)
+    }
+    setClothes([...clothingList, item])
+  }
 
 
   return (
